@@ -1,0 +1,171 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* MVC 说明部分 */
+.info-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mvc-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.mvc-component {
+    padding: 1.5rem;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+}
+
+.mvc-component h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.mvc-component ul {
+    list-style-position: inside;
+    margin-top: 0.5rem;
+}
+
+.mvc-component li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+/* 待办事项表单 */
+form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* 待办事项列表 */
+.todo-list {
+    list-style: none;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list li:hover {
+    background-color: #f8f9fa;
+}
+
+.todo-list input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.todo-list span.editable {
+    flex: 1;
+    padding: 0.3rem;
+    border-radius: 4px;
+    outline: none;
+}
+
+.todo-list span.editable:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+.todo-list button.delete {
+    background-color: #e74c3c;
+    padding: 0.5rem 1rem;
+}
+
+.todo-list button.delete:hover {
+    background-color: #c0392b;
+}
+
+/* 删除线样式 */
+.todo-list s {
+    color: #999;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .mvc-explanation {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+} 

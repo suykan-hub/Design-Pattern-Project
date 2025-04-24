@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Pattern Demo - Lazy Loading Images</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .placeholder{
+        height: 200px;
+        width: 200px;
+        background-color: #f0f0f0;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proxy Pattern: Lazy Loading Images</h1>
+        <p class="description">
+            This demo shows how the Proxy Pattern can be used to implement lazy loading of images.
+            Images are only loaded when they come into view, improving initial page load performance.
+        </p>
+
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-value" id="loaded-count">0</span>
+                <span class="stat-label">Loaded</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="failed-count">0</span>
+                <span class="stat-label">Failed</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="cached-count">0</span>
+                <span class="stat-label">Cached</span>
+            </div>
+        </div>
+
+        <div class="image-grid" id="image-grid">
+            <!-- Images will be dynamically added here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

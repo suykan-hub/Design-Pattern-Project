@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图数据加载示例</title>
+    <style>
+        .map-container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+        .region {
+            position: absolute;
+            background-color: rgba(0, 255, 0, 0.2);
+            border: 1px solid #0a0;
+            transition: all 0.3s ease;
+        }
+        .region.loading {
+            background-color: rgba(255, 165, 0, 0.2);
+            border-color: #f90;
+        }
+        .stats {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container" id="map">
+        <!-- 地图区域将动态添加到这里 -->
+    </div>
+    <div class="stats">
+        <h3>加载统计</h3>
+        <p>已加载区域: <span id="loaded-count">0</span></p>
+        <p>缓存区域: <span id="cached-count">0</span></p>
+        <p>正在加载: <span id="loading-count">0</span></p>
+    </div>
+
+    <script type="module">
+        import { ProxyMapData, MapRenderer, handleViewportChange } from './map-loader.js';
+
+        // 模拟可见区域变化
+        const visibleRegions = ['京津冀', '长三角', '珠三角', '成渝'];
+        
+        // 初始化地图
+        const map = document.getElementById('map');
+        const stats = {
+            loaded: document.getElementById('loaded-count'),
+            cached: document.getElementById('cached-count'),
+            loading: document.getElementById('loading-count')
+        };
+
+        // 更新统计信息
+        function updateStats(proxy) {
+            stats.loaded.textContent = proxy.regions.size;
+            stats.cached.textContent = proxy.regions.size;
+            stats.loading.textContent = proxy.loadingQueue.size;
+        }
+
+        // 初始化
+        const proxy = new ProxyMapData();
+        const renderer = new MapRenderer(proxy);
+
+        // 模拟视口变化和数据加载
+        setInterval(async () => {
+            await handleViewportChange(visibleRegions);
+            updateStats(proxy);
+        }, 2000);
+
+        // 添加交互效果
+        map.addEventListener('mousemove', () => {
+            // 可以在这里添加鼠标移动时的交互效果
+        });
+    </script>
+</body>
+</html> 

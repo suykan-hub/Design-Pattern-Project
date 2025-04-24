@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>工厂模式演示 - 球类工厂</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>球类工厂模式演示</h1>
+      <div class="ball-selector">
+        <h2>选择球类：</h2>
+        <div class="ball-buttons">
+          <button class="ball-btn" data-type="football">足球</button>
+          <button class="ball-btn" data-type="basketball">篮球</button>
+          <button class="ball-btn" data-type="badminton">羽毛球</button>
+          <button class="ball-btn" data-type="rugby">橄榄球</button>
+        </div>
+      </div>
+      <div class="ball-display">
+        <div class="ball-info">
+          <h3>球类信息</h3>
+          <div id="ballDetails">
+            <p>请选择一个球类查看详细信息</p>
+          </div>
+        </div>
+        <div class="ball-image">
+          <div id="ballImage" class="ball-placeholder">
+            <span>选择球类显示图片</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

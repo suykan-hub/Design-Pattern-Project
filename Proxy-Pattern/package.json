@@ -1,0 +1,16 @@
+{
+  "name": "proxy-pattern",
+  "version": "1.0.0",
+  "description": "这个项目展示了代理模式在图片懒加载中的实际应用。代理模式是一种结构型设计模式，它允许我们创建一个代理对象来控制对其他对象的访问。",
+  "main": "map-loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

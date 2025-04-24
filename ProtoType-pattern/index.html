@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型模式示例 - 角色创建器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>游戏角色创建器 (原型模式)</h1>
+        
+        <!-- 原型角色展示区 -->
+        <div class="prototype-section">
+            <h2>选择基础角色原型</h2>
+            <div class="prototype-list">
+                <div class="character-card" data-type="warrior">
+                    <h3>战士</h3>
+                    <div class="character-icon warrior"></div>
+                    <div class="stats">
+                        <p>生命值: 150</p>
+                        <p>攻击力: 30</p>
+                        <p>防御力: 40</p>
+                    </div>
+                </div>
+                <div class="character-card" data-type="mage">
+                    <h3>法师</h3>
+                    <div class="character-icon mage"></div>
+                    <div class="stats">
+                        <p>生命值: 100</p>
+                        <p>攻击力: 50</p>
+                        <p>防御力: 20</p>
+                    </div>
+                </div>
+                <div class="character-card" data-type="archer">
+                    <h3>弓箭手</h3>
+                    <div class="character-icon archer"></div>
+                    <div class="stats">
+                        <p>生命值: 120</p>
+                        <p>攻击力: 40</p>
+                        <p>防御力: 25</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 角色创建区 -->
+        <div class="creation-section">
+            <h2>创建新角色</h2>
+            <div class="creation-form">
+                <div class="form-group">
+                    <label for="characterName">角色名称:</label>
+                    <input type="text" id="characterName" placeholder="输入角色名称">
+                </div>
+                <div class="form-group">
+                    <label for="characterLevel">等级:</label>
+                    <input type="number" id="characterLevel" min="1" max="100" value="1">
+                </div>
+                <button id="createCharacter" disabled>创建角色</button>
+            </div>
+        </div>
+
+        <!-- 已创建角色列表 -->
+        <div class="created-characters">
+            <h2>已创建的角色</h2>
+            <div id="characterList" class="character-list">
+                <!-- 动态添加的角色将显示在这里 -->
+            </div>
+        </div>
+    </div>
+    <script src="prototype.js"></script>
+</body>
+</html> 

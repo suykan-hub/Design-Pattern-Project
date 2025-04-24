@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC 模式 - 待办事项应用</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MVC 模式示例 - 待办事项清单</h1>
+        <div class="info-section">
+            <h2>MVC 模式说明</h2>
+            <div class="mvc-explanation">
+                <div class="mvc-component">
+                    <h3>Model（模型）</h3>
+                    <p>负责数据的存储和业务逻辑：</p>
+                    <ul>
+                        <li>管理待办事项数据</li>
+                        <li>处理数据的增删改查</li>
+                        <li>数据持久化（LocalStorage）</li>
+                    </ul>
+                </div>
+                <div class="mvc-component">
+                    <h3>View（视图）</h3>
+                    <p>负责用户界面的显示：</p>
+                    <ul>
+                        <li>渲染待办事项列表</li>
+                        <li>处理用户输入</li>
+                        <li>触发用户事件</li>
+                    </ul>
+                </div>
+                <div class="mvc-component">
+                    <h3>Controller（控制器）</h3>
+                    <p>负责协调 Model 和 View：</p>
+                    <ul>
+                        <li>响应用户操作</li>
+                        <li>更新 Model 数据</li>
+                        <li>刷新 View 显示</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="root"></div>
+    </div>
+    <script type="module" src="public/js/app.js"></script>
+</body>
+</html> 

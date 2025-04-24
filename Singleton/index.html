@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单例模式示例 - 主题管理器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>单例模式示例</h1>
+            <div class="theme-switcher">
+                <button id="themeToggle">切换主题</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="demo-section">
+                <h2>主题管理器 (单例模式)</h2>
+                <div class="info-box">
+                    <p>这是一个使用单例模式实现的主题管理器示例。无论在应用程序的哪个部分切换主题，状态都会保持同步。</p>
+                </div>
+
+                <div class="demo-boxes">
+                    <div class="demo-box">
+                        <h3>组件 1</h3>
+                        <p>这是一个测试组件，用于展示主题效果。</p>
+                        <button class="theme-toggle-btn">切换主题</button>
+                    </div>
+
+                    <div class="demo-box">
+                        <h3>组件 2</h3>
+                        <p>这是另一个测试组件，主题会与其他组件同步。</p>
+                        <button class="theme-toggle-btn">切换主题</button>
+                    </div>
+
+                    <div class="demo-box">
+                        <h3>组件 3</h3>
+                        <p>第三个测试组件，展示单例模式的状态同步。</p>
+                        <button class="theme-toggle-btn">切换主题</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="code-section">
+                <h2>单例模式实现代码</h2>
+                <pre class="code-block"><code>
+class ThemeManager {
+    constructor() {
+        if (ThemeManager.instance) {
+            return ThemeManager.instance;
+        }
+        ThemeManager.instance = this;
+        this.theme = 'light';
+        this.observers = new Set();
+    }
+
+    static getInstance() {
+        if (!ThemeManager.instance) {
+            ThemeManager.instance = new ThemeManager();
+        }
+        return ThemeManager.instance;
+    }
+
+    toggleTheme() {
+        this.theme = this.theme === 'light' ? 'dark' : 'light';
+        this.notifyObservers();
+    }
+
+    subscribe(callback) {
+        this.observers.add(callback);
+    }
+
+    notifyObservers() {
+        this.observers.forEach(callback => callback(this.theme));
+    }
+}
+                </code></pre>
+            </section>
+        </main>
+
+        <footer>
+            <div class="theme-info">
+                <p>当前主题: <span id="currentTheme">浅色</span></p>
+                <p>实例ID: <span id="instanceId"></span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="singleton.js"></script>
+</body>
+</html> 
